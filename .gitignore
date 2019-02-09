@@ -59,3 +59,9 @@ typings/
 
 # next.js build output
 .next
+
+config.json
+node_modules
+npm-debug.log
+lib/
+.DS_Store

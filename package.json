@@ -1,0 +1,34 @@
+{
+  "name": "flowcl-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf lib && babel es -d lib --source-maps",
+    "run-example": "node ./examples/server.js"
+  },
+  "files": [
+    "es",
+    "lib",
+    "index.js",
+    "index.d.ts"
+  ],
+  "author": "Esteban Fuentealba <efuentealba@json.cl>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "axios-retry": "^3.1.2",
+    "crypto": "^1.0.1",
+    "crypto-js": "^3.1.9-1"
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-object-rest-spread": "^7.2.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "typings": "./index.d.ts"
+}
