@@ -10,7 +10,10 @@ Cliente Node (No oficial) para consumir el API de Flow.
 
 ## Instalación
 
-Baje la última versión y copie los archivos en su servidor.
+Instale la última versión en su proyecto desde npm
+```ssh
+npm install flowcl-node-api-client --save
+```
 
 ## Documentación
 
