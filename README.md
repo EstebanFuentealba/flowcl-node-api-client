@@ -41,7 +41,7 @@ Lo primero que debe configurar es su apiKey y secretKey del comercio registrado 
 
 En este ejemplo crearemos una Orden de Cobro y redireccionaremos el browser del pagador para efectuar el pago
 
-```json
+```javascript
 /**
  * Ejemplo de creación de una orden de cobro, iniciando una transacción de pago
  * Utiliza el método payment/create
