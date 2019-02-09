@@ -23,7 +23,7 @@ export interface IFlowSendParams {
   urlReturn: string;
 }
 export interface IFlowApi {
-  new (n: IFlowApiConfig): IFlowApiConfig;
+  new (n: IFlowApiConfig): IFlowApi;
   send(
     service: string,
     params: IFlowSendParams,
