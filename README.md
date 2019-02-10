@@ -29,7 +29,7 @@ Lo primero que debe configurar es su apiKey y secretKey del comercio registrado 
 - **apiKey** el apiKey obtenida desde su cuenta Flow
 - **secretKey** el secretKey obtenida desde su cuenta Flow
 - **apiURL** la URL del endpoint del API de Flow, Aquí podrá configurar el endpoint de producción o del sandbox. Esta información se obtiene en la documentación del API https://www.flow.cl/docs/api.html
-- **baseURL** La URL base donde instaló el cliente PHP en su servidor
+- **baseURL** La URL base donde instaló el cliente en su servidor
 
 ```json
 {
