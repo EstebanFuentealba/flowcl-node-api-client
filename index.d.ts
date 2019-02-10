@@ -28,7 +28,7 @@ export interface IFlowSendParams {
   urlConfirmation: string;
   urlReturn: string;
 }
-export interface IFlowResponse {
+export interface IFlowPaymentStatus {
   flowOrder: number;
   commerceOrder: string;
   requestDate: string;
@@ -55,6 +55,11 @@ export interface IFlowResponse {
     transferDate: string;
   };
 }
+export interface IFlowPaymentCreate {
+  url: string;
+  token: string;
+  flowOrder: number;
+}
 type HTTPMethod = "GET" | "POST";
 export interface IFlowApi {
   new (n: IFlowApiConfig): IFlowApi;
@@ -62,7 +67,7 @@ export interface IFlowApi {
     service: string,
     params: IFlowSendParams,
     method: HTTPMethod = "GET"
-  ): Promise<IFlowResponse>;
+  ): Promise<IFlowPaymentStatus | IFlowPaymentCreate>;
   getPack(params: IFlowSendParams, method: HTTPMethod = "GET"): string;
   sign(params: IFlowSendParams): string;
   httpGet(
