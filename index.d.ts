@@ -18,6 +18,9 @@ export enum FlowStatus {
   REJECTED = 3,
   CANCELED = 4
 }
+export interface IFlowGetStatus {
+  token: string;
+}
 export interface IFlowSendParams {
   commerceOrder: number;
   subject: string;
@@ -65,7 +68,7 @@ export interface IFlowApi {
   new (n: IFlowApiConfig): IFlowApi;
   send(
     service: string,
-    params: IFlowSendParams,
+    params: IFlowSendParams | IFlowGetStatus,
     method: HTTPMethod = "GET"
   ): Promise<IFlowPaymentStatus | IFlowPaymentCreate>;
   getPack(params: IFlowSendParams, method: HTTPMethod = "GET"): string;
