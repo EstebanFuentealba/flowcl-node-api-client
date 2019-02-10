@@ -4,7 +4,7 @@ const CryptoJS = require("crypto-js");
 
 axiosRetry(axios, { retries: 3 });
 
-class FlowApi {
+export default class FlowApi {
   constructor({ apiKey, secretKey, apiURL }) {
     this.apiKey = apiKey;
     this.secretKey = secretKey;
@@ -121,4 +121,17 @@ class FlowApi {
       });
   }
 }
-module.exports = FlowApi;
+export const FlowStatus = {
+  PENDING_PAYMENT: 1,
+  PAIED: 2,
+  REJECTED: 3,
+  CANCELED: 4
+};
+export const PaymentMethod = {
+  WEBPAY: 1,
+  SERVIPAG: 2,
+  MULTICAJA: 3,
+  ONEPAY: 4,
+  CRYPOMONEDA: 5,
+  TODOS_LOS_MEDIOS: 9
+};
