@@ -55,14 +55,15 @@ export interface IFlowResponse {
     transferDate: string;
   };
 }
+type HTTPMethod = "GET" | "POST";
 export interface IFlowApi {
   new (n: IFlowApiConfig): IFlowApi;
   send(
     service: string,
     params: IFlowSendParams,
-    method: "GET" | " POST" = "GET"
+    method: HTTPMethod = "GET"
   ): Promise<IFlowResponse>;
-  getPack(params: IFlowSendParams, method: "GET" | " POST" = "GET"): string;
+  getPack(params: IFlowSendParams, method: HTTPMethod = "GET"): string;
   sign(params: IFlowSendParams): string;
   httpGet(
     url: string,
