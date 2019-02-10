@@ -2,7 +2,7 @@ export interface IFlowApiConfig {
   apiKey: string;
   secretKey: string;
   apiURL: string;
-  baseURL: string;
+  baseURL?: string;
 }
 export enum PaymentMethod {
   WEBPAY = 1,
@@ -11,6 +11,12 @@ export enum PaymentMethod {
   ONEPAY = 4,
   CRYPOMONEDA = 5,
   TODOS_LOS_MEDIOS = 9
+}
+export enum FlowStatus {
+  PENDING_PAYMENT = 1,
+  PAIED = 2,
+  REJECTED = 3,
+  CANCELED = 4
 }
 export interface IFlowSendParams {
   commerceOrder: number;
@@ -22,13 +28,40 @@ export interface IFlowSendParams {
   urlConfirmation: string;
   urlReturn: string;
 }
+export interface IFlowResponse {
+  flowOrder: number;
+  commerceOrder: string;
+  requestDate: string;
+  status: FlowStatus;
+  subject: string;
+  currency: string;
+  amount: number;
+  payer: string;
+  optional: {
+    [key: string]: string;
+  };
+  pending_info: {
+    media: string;
+    date: string;
+  };
+  paymentData: {
+    date: string;
+    media: string;
+    conversionDate: string;
+    conversionRate: number;
+    amount: number;
+    fee: number;
+    balance: number;
+    transferDate: string;
+  };
+}
 export interface IFlowApi {
   new (n: IFlowApiConfig): IFlowApi;
   send(
     service: string,
     params: IFlowSendParams,
     method: "GET" | " POST" = "GET"
-  ): Promise<any>;
+  ): Promise<IFlowResponse>;
   getPack(params: IFlowSendParams, method: "GET" | " POST" = "GET"): string;
   sign(params: IFlowSendParams): string;
   httpGet(
