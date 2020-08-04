@@ -32,7 +32,7 @@ export interface IFlowSendParams {
   urlReturn: string;
 }
 export interface IFlowPaymentStatus {
-  flowOrder: string;
+  flowOrder: number;
   commerceOrder: string;
   requestDate: string;
   status: FlowStatus;
