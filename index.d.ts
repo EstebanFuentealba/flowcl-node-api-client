@@ -10,19 +10,19 @@ export enum PaymentMethod {
   MULTICAJA = 3,
   ONEPAY = 4,
   CRYPOMONEDA = 5,
-  TODOS_LOS_MEDIOS = 9
+  TODOS_LOS_MEDIOS = 9,
 }
 export enum FlowStatus {
   PENDING_PAYMENT = 1,
   PAIED = 2,
   REJECTED = 3,
-  CANCELED = 4
+  CANCELED = 4,
 }
 export interface IFlowGetStatus {
   token: string;
 }
 export interface IFlowSendParams {
-  commerceOrder: number;
+  commerceOrder: string;
   subject: string;
   currency: string;
   amount: number;
@@ -53,6 +53,7 @@ export interface IFlowPaymentStatus {
     conversionDate: string;
     conversionRate: number;
     amount: number;
+    currency: string;
     fee: number;
     balance: number;
     transferDate: string;
@@ -69,9 +70,9 @@ export interface IFlowApi {
   send(
     service: string,
     params: IFlowSendParams | IFlowGetStatus,
-    method: HTTPMethod = "GET"
+    method: HTTPMethod
   ): Promise<IFlowPaymentStatus | IFlowPaymentCreate>;
-  getPack(params: IFlowSendParams, method: HTTPMethod = "GET"): string;
+  getPack(params: IFlowSendParams, method: HTTPMethod): string;
   sign(params: IFlowSendParams): string;
   httpGet(
     url: string,
