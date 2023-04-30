@@ -123,7 +123,7 @@ class FlowApi {
 }
 const FlowStatus = {
   PENDING_PAYMENT: 1,
-  PAIED: 2,
+  PAID: 2,
   REJECTED: 3,
   CANCELED: 4
 };
